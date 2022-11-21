@@ -1,5 +1,6 @@
-package com.tuhin.examples;
+package java.com.tuhin.examples;
 
+import com.tuhin.examples.GuessTheWordGame;
 import org.junit.Assert;
 import org.junit.Test;
 

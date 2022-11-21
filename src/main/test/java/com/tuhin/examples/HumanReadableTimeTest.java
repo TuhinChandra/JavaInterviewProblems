@@ -1,5 +1,6 @@
-package com.tuhin.examples;
+package java.com.tuhin.examples;
 
+import com.tuhin.examples.HumanReadableTime;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
