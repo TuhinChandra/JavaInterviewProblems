@@ -1,0 +1,7 @@
+{
+  "sourceLocation": "C:\\WatchDirectory\\Source\\",
+  "targetLocation": "C:\\WatchDirectory\\Archive\\",
+  "failedLocation": "C:\\WatchDirectory\\Failed\\",
+  "dateTimeFormat": "yyyyMMddHHmmssSSS",
+  "regexForDateTimeParsing": ".*_(\\d{17}).raw"
+}
