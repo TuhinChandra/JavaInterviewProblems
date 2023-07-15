@@ -17,9 +17,9 @@ public class FlightPositionFinder {
     public static Optional<Airspace> determineFlightInWhichAirspace(Flight flight, List<Airspace> listOfAirspaces) {
         final Optional<Airspace> currentAirspace = listOfAirspaces.stream().filter(airspace -> checkIfFlighWithinAirspace(flight, airspace)).collect(Collectors.toList()).stream().findFirst();
         if (currentAirspace.isPresent()) {
-            System.out.println(flight + ", currently on " + currentAirspace.get() + " airspace");
+            System.out.println(flight + ", is located on " + currentAirspace.get() + " airspace");
         } else {
-            System.out.println(flight + ", currently on unknown airspace");
+            System.out.println(flight + ", is currently on unknown airspace");
         }
         return currentAirspace;
     }

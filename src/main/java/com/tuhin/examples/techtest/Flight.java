@@ -95,7 +95,7 @@ public class Flight {
         final StringBuilder sb = new StringBuilder("Flight ");
         sb.append(departureAerodrome).append(" to ").append(arrivalAerodrome);
         if (null != currentCoordinate) {
-            sb.append(", which is current at ").append(currentCoordinate);
+            sb.append(", which is currently at ").append(currentCoordinate);
         }
         return sb.toString();
     }
