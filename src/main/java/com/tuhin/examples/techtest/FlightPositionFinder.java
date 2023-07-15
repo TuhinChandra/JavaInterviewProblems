@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class FlightPositionFinder {
 
-    private static boolean checkIfFlighWithinAirspace(Flight flight, Airspace airspace) {
+    private static boolean checkIfFlighWithinAirspace(final Flight flight, final Airspace airspace) {
         boolean isFlightWithinXAxis = flight.getCurrentCoordinate().getX() >= airspace.getBottomLeft().getX() &&
                 flight.getCurrentCoordinate().getX() <= airspace.getTopRight().getX();
         boolean isFlightWithinYAxis = flight.getCurrentCoordinate().getY() >= airspace.getBottomLeft().getY() &&
@@ -14,7 +14,7 @@ public class FlightPositionFinder {
         return isFlightWithinXAxis && isFlightWithinYAxis;
     }
 
-    public static Optional<Airspace> determineFlightInWhichAirspace(Flight flight, List<Airspace> listOfAirspaces) {
+    public static Optional<Airspace> determineFlightInWhichAirspace(final Flight flight, final List<Airspace> listOfAirspaces) {
         final Optional<Airspace> currentAirspace = listOfAirspaces.stream().filter(airspace -> checkIfFlighWithinAirspace(flight, airspace)).collect(Collectors.toList()).stream().findFirst();
         if (currentAirspace.isPresent()) {
             System.out.println(flight + ", is located on " + currentAirspace.get() + " airspace");
