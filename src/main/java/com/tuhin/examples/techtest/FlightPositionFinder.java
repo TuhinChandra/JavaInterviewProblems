@@ -7,11 +7,11 @@ import java.util.stream.Collectors;
 public class FlightPositionFinder {
 
     private static boolean checkIfFlighWithinAirspace(Flight flight, Airspace airspace) {
-        boolean withinXAxis = flight.getCurrentCoordinate().getX() >= airspace.getBottomLeft().getX() &&
+        boolean isFlightWithinXAxis = flight.getCurrentCoordinate().getX() >= airspace.getBottomLeft().getX() &&
                 flight.getCurrentCoordinate().getX() <= airspace.getTopRight().getX();
-        boolean withinYAxis = flight.getCurrentCoordinate().getY() >= airspace.getBottomLeft().getY() &&
+        boolean isFlightWithinYAxis = flight.getCurrentCoordinate().getY() >= airspace.getBottomLeft().getY() &&
                 flight.getCurrentCoordinate().getY() <= airspace.getTopRight().getY();
-        return withinXAxis && withinYAxis;
+        return isFlightWithinXAxis && isFlightWithinYAxis;
     }
 
     public static Optional<Airspace> determineFlightInWhichAirspace(Flight flight, List<Airspace> listOfAirspaces) {
