@@ -7,13 +7,13 @@ package com.tuhin.examples.techtest;
 public class Airspace {
 
     /** The bottom left coordinate of this airspace. */
-    private final Coordinate bottomLeft;
+    private Coordinate bottomLeft;
 
     /** The top right coordinate of this airspace. */
-    private final Coordinate topRight;
+    private Coordinate topRight;
 
     /** Name of the Airspace to easily identify */
-    private final String name;
+    private String name;
 
     /**
      * Construct an Airspace.
@@ -26,6 +26,9 @@ public class Airspace {
         this.bottomLeft = bottomLeft;
         this.topRight = topRight;
         this.name = name;
+    }
+
+    public Airspace() {
     }
 
     /**

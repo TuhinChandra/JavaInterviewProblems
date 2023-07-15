@@ -7,10 +7,10 @@ package com.tuhin.examples.techtest;
 public class Coordinate {
 
     /** The X component of this coordinate (can have values -180 to +180). */
-    private final double x;
+    private double x;
 
     /** The Y component of this coordinate (can have values -90 to +90). */
-    private final double y;
+    private double y;
 
     /**
      * Construct a coordinate.
@@ -21,6 +21,9 @@ public class Coordinate {
     public Coordinate(final double x, final double y) {
         this.x = x;
         this.y = y;
+    }
+
+    public Coordinate() {
     }
 
     /**
