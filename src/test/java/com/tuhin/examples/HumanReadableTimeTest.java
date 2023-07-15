@@ -1,9 +1,10 @@
-package java.com.tuhin.examples;
+package com.tuhin.examples;
 
-import com.tuhin.examples.HumanReadableTime;
-import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class HumanReadableTimeTest {
 

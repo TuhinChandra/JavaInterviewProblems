@@ -1,10 +1,9 @@
 package com.tuhin.examples.directorywatch;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.tuhin.examples.FileUtils;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.nio.file.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -16,7 +15,7 @@ public class DirectoryWatcherExample {
     public static final String CONFIG_FILE_JSON = "com/tuhin/examples/directorywatch/config.json";
 
     public static void main(String[] args) throws IOException {
-        final DirectoryConfiguration config = new ObjectMapper().readValue(getFileContent(), DirectoryConfiguration.class);
+        final DirectoryConfiguration config = new ObjectMapper().readValue(FileUtils.getFileContent(new DirectoryWatcherExample().getClass().getClassLoader(), CONFIG_FILE_JSON), DirectoryConfiguration.class);
         final Pattern TIMESTAMP_REGEX = Pattern.compile(config.getRegexForDateTimeParsing());
         final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(config.getDateTimeFormat());
         final Path sourcePath = Paths.get(config.getSourceLocation());
@@ -72,15 +71,5 @@ public class DirectoryWatcherExample {
 
     private static String buildTargetDirectoryName(final DirectoryConfiguration config, final LocalDateTime localDateTime) {
         return config.getTargetLocation() + localDateTime.getYear() + "\\" + localDateTime.getMonthValue() + "\\" + localDateTime.getDayOfMonth() + "\\";
-    }
-
-    private static String getFileContent() throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(new DirectoryWatcherExample().getClass().getClassLoader().getResourceAsStream(CONFIG_FILE_JSON)));
-        StringBuilder content = new StringBuilder();
-        String str;
-        while ((str = reader.readLine()) != null) {
-            content.append(str);
-        }
-        return content.toString();
     }
 }

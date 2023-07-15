@@ -1,13 +1,14 @@
-package java.com.tuhin.examples;
+package com.tuhin.examples;
 
-import com.tuhin.examples.GuessTheWordGame;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GuessTheWordGameTest {
 
@@ -33,8 +34,8 @@ public class GuessTheWordGameTest {
 
         final String[] lines = baos.toString().split(System.lineSeparator());
 
-        Assert.assertTrue(Arrays.asList(lines).contains("You wave won!!!"));
-        Assert.assertTrue(Arrays.asList(lines).contains("Game Over!!!"));
+        assertTrue(Arrays.asList(lines).contains("You wave won!!!"));
+        assertTrue(Arrays.asList(lines).contains("Game Over!!!"));
     }
 
     @Test
@@ -56,8 +57,8 @@ public class GuessTheWordGameTest {
 
         final String[] lines = baos.toString().split(System.lineSeparator());
 
-        Assert.assertFalse(Arrays.asList(lines).contains("You wave won!!!"));
-        Assert.assertTrue(Arrays.asList(lines).contains("Game Over!!!"));
+        assertFalse(Arrays.asList(lines).contains("You wave won!!!"));
+        assertTrue(Arrays.asList(lines).contains("Game Over!!!"));
     }
 
 }
