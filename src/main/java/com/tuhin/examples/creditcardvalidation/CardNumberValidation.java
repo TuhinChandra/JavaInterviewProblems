@@ -5,38 +5,21 @@ import java.util.Arrays;
 public class CardNumberValidation {
 
     public static void main(final String[] args) {
-        System.out.println(validCreditCardNumberAgainstLuhnAlgo("111111111111111"));
+        System.out.println("111111111111111 = " + isValidCreditCardNumber("111111111111111"));//false
+        System.out.println("5478965320147852 = " + isValidCreditCardNumber("5478965320147852"));//false
+        System.out.println("4556737586899855 = " + isValidCreditCardNumber("4556737586899855"));//true
     }
 
-    public static boolean validCreditCardNumberAgainstLuhnAlgo(final String cardNumber) {
-        boolean isValidCardNumber = false;
-        final int[] cardIntArray = new int[cardNumber.length()];
+    public static boolean isValidCreditCardNumber(String cardNumber) {
+        int[] cardIntArray = cardNumber.chars().map(Character::getNumericValue)
+                .toArray();
 
-        for (int i = 0; i < cardNumber.length(); i++) {
-            final char c = cardNumber.charAt(i);
-            cardIntArray[i] = Integer.parseInt("" + c);
+        for (int i = cardIntArray.length - 2; i >= 0; i -= 2) {
+            int num = cardIntArray[i] * 2;
+            cardIntArray[i] = (num > 9) ? num - 9 : num;
         }
 
-        for (int i = cardIntArray.length - 2; i >= 0; i = i - 2) {
-            int num = cardIntArray[i];
-            num = num * 2;
-            if (num > 9) {
-                num = num % 10 + num / 10;
-            }
-            cardIntArray[i] = num;
-        }
-
-        final int sum = sumDigits(cardIntArray);
-
-        if (sum % 10 == 0) {
-            isValidCardNumber = true;
-        }
-
-        return isValidCardNumber;
-
-    }
-
-    public static int sumDigits(final int[] arr) {
-        return Arrays.stream(arr).sum();
+        int sum = Arrays.stream(cardIntArray).sum();
+        return sum % 10 == 0;
     }
 }
