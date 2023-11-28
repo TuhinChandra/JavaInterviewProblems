@@ -1,4 +1,4 @@
-package com.tuhin.examples;
+package com.tuhin.examples.sainsburys;
 
 public class Chess {
 

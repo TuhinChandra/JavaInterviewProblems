@@ -1,4 +1,4 @@
-package com.tuhin.examples.techtest;
+package com.tuhin.examples.cirium;
 
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -14,7 +14,7 @@ import java.time.ZoneOffset;
 import java.util.List;
 import java.util.Optional;
 
-import static com.tuhin.examples.techtest.FlightPositionFinder.determineFlightInWhichAirspace;
+import static com.tuhin.examples.cirium.FlightPositionFinder.determineFlightInWhichAirspace;
 
 public class FindFlightTest {
 
