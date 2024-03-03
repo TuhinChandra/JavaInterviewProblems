@@ -1,25 +1,23 @@
 package com.tuhin.examples;
 
 public class MaximumSubarraySum {
+    public static int maxSubArraySum(int[] nums) {
+        int maxSum = nums[0]; // Initialize maxSum with the first element of the array
+        int currentSum = nums[0]; // Initialize currentSum with the first element of the array
 
-    public static int maxSubarraySum(int[] nums) {
-        int maxEndingHere = nums[0];
-        int maxSoFar = nums[0];
-
+        // Iterate through the array starting from the second element
         for (int i = 1; i < nums.length; i++) {
-            System.out.print("Iteration - " + i + ": nums[i] = " + nums[i]);
-            maxEndingHere = Math.max(nums[i], maxEndingHere + nums[i]);
-            maxSoFar = Math.max(maxSoFar, maxEndingHere);
-            System.out.println(" maxEndingHere=" + maxEndingHere + " maxSoFar=" + maxSoFar);
+            // Calculate the current sum including the current element or start a new subarray
+            currentSum = Math.max(nums[i], currentSum + nums[i]);
+            // Update maxSum if the current sum is greater
+            maxSum = Math.max(maxSum, currentSum);
         }
 
-        return maxSoFar;
+        return maxSum;
     }
 
     public static void main(String[] args) {
-        // Example usage:
-        int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-        int result = maxSubarraySum(nums);
-        System.out.println("Maximum Subarray Sum: " + result);
+        int[] nums = { -2, 1, -3, 4, -1, 2, 1, -5, 4 }; // Example array
+        System.out.println("Maximum subarray sum: " + maxSubArraySum(nums)); // Should print 6
     }
 }
